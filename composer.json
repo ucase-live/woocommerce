@@ -1,0 +1,9 @@
+{
+  "name": "ucase-live/woocommerce",
+  "type": "ucase-live",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "4.x.x"
+    }
+  }
+}
