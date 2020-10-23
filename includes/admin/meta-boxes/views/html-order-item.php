@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 $product      = $item->get_product();
 $product_link = $product ? admin_url( 'post.php?post=' . $item->get_product_id() . '&action=edit' ) : '';
 $thumbnail    = $product ? apply_filters( 'woocommerce_admin_order_item_thumbnail', $product->get_image( 'thumbnail', array( 'title' => '' ), false ), $item_id, $item ) : '';
+$product_name = $product ? $item->get_product()->get_title() : '';
 $row_class    = apply_filters( 'woocommerce_admin_html_order_item_class', ! empty( $class ) ? $class : '', $item, $order );
 ?>
 <tr class="item <?php echo esc_attr( $row_class ); ?>" data-order_item_id="<?php echo esc_attr( $item_id ); ?>">
@@ -20,7 +21,7 @@ $row_class    = apply_filters( 'woocommerce_admin_html_order_item_class', ! empt
 	</td>
 	<td class="name" data-sort-value="<?php echo esc_attr( $item->get_name() ); ?>">
 		<?php
-		echo $product_link ? '<a href="' . esc_url( $product_link ) . '" class="wc-order-item-name">' . wp_kses_post( $item->get_name() ) . '</a>' : '<div class="wc-order-item-name">' . wp_kses_post( $item->get_name() ) . '</div>';
+		echo $product_link && $product_name ? '<a href="' . esc_url( $product_link ) . '" class="wc-order-item-name">' . wp_kses_post( $product_name ) . '</a>' : '<div class="wc-order-item-name">' . wp_kses_post( $product_name ) . '</div>';
 
 		if ( $product && $product->get_sku() ) {
 			echo '<div class="wc-order-item-sku"><strong>' . esc_html__( 'SKU:', 'woocommerce' ) . '</strong> ' . esc_html( $product->get_sku() ) . '</div>';
