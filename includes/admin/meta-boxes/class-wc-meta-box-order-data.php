@@ -317,7 +317,8 @@ class WC_Meta_Box_Order_Data {
 							<?php
 
 							echo '<div><h4>Имя и Фамилия</h4><span>Имя:</span> ' . $order->get_shipping_first_name() .', <span>Фамилия:</span> ' . $order->get_shipping_last_name() . '</div>';
-							echo '<div><h4>Адрес доставки</h4><span>Улица:</span> ' . $order->get_shipping_state() .', <span>Дом:</span> ' . $order->get_shipping_address_1() .', <span>Корпус:</span> ' . $order->get_shipping_address_2() . ', <span>Квартира/Офис:</span> ' . $order->get_shipping_company() . '</div>';
+							echo '<div><h4>Город доставки</h4><span>Индекс:</span> ' . $order->get_shipping_postcode() . ', <span>Город/Посёлок:</span> ' . $order->get_shipping_city() . '</div>';
+							echo '<div><h4>Адрес доставки</h4><span>Улица:</span> ' . $order->get_shipping_state() . ', <span>Дом:</span> ' . $order->get_shipping_address_1() .', <span>Корпус:</span> ' . $order->get_shipping_address_2() . ', <span>Квартира/Офис:</span> ' . $order->get_shipping_company() . '</div>';
 							echo '<div><h4>Контактный телефон</h4>' . $order->get_billing_phone() . '</div>';
 
 							if ( apply_filters( 'woocommerce_enable_order_notes_field', 'yes' == get_option( 'woocommerce_enable_order_comments', 'yes' ) ) && $post->post_excerpt ) {
